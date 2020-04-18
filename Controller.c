@@ -8,6 +8,7 @@ typedef enum {
 	A,
 	B,
     PLUS,
+	HOME,
 	SYNC,
     NOTHING
 } Buttons_t;
@@ -21,18 +22,32 @@ typedef struct {
 static const command step[] = {
 	// Setup controller
 	{ NOTHING,  250 },
-	{ TRIGGERS,   5 },
+	{ HOME,       5 },
+	{ NOTHING,   50 },
+	{ DOWN,       5 },
+	{ NOTHING,   50 },
+	{ RIGHT,      5 },
+	{ NOTHING,   50 },
+	{ RIGHT,      5 },
+	{ NOTHING,   50 },
+	{ RIGHT,      5 },
+	{ NOTHING,   50 },
+	{ A,          5 },
+	{ NOTHING,   50 },
+	{ A,          5 },
 	{ NOTHING,  150 },
-	{ TRIGGERS,   5 },
+	{ SYNC,       5 },
+	{ NOTHING,  150 },
+	{ SYNC,       5 },
 	{ NOTHING,  150 },
 	{ A,          5 },
-	{ NOTHING,  250 },
+	{ NOTHING,   50 },
+	{ HOME,       5 },
+	{ NOTHING,   50 },
+	{ A,          5 },
+	{ NOTHING,   50 },
 
     //Start Game
-    { PLUS,       5 },
-    { NOTHING,  500 },
-    { LEFT,     250 },
-    { A,          5 }
 
 };
 
