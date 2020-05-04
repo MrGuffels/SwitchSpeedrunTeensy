@@ -391,7 +391,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x0000000000000000      0xdcc
+.text           0x0000000000000000      0xeb0
  *(.vectors)
  .vectors       0x0000000000000000       0x98 /usr/lib/gcc/avr/5.4.0/../../../avr/lib/avr51/crtat90usb1286.o
                 0x0000000000000000                __vectors
@@ -513,71 +513,71 @@ END GROUP
                 0x00000000000001f2        0x2 obj/Controller.o
                 0x00000000000001f2                EVENT_USB_Device_ControlRequest
  .text.GetNextReport
-                0x00000000000001f4      0x1bc obj/Controller.o
+                0x00000000000001f4      0x2a0 obj/Controller.o
                 0x00000000000001f4                GetNextReport
  .text.HID_Task
-                0x00000000000003b0       0x90 obj/Controller.o
-                0x00000000000003b0                HID_Task
+                0x0000000000000494       0x90 obj/Controller.o
+                0x0000000000000494                HID_Task
  .text.startup.main
-                0x0000000000000440        0xa obj/Controller.o
-                0x0000000000000440                main
+                0x0000000000000524        0xa obj/Controller.o
+                0x0000000000000524                main
  .text.CALLBACK_USB_GetDescriptor
-                0x000000000000044a       0x82 obj/Descriptors.o
-                0x000000000000044a                CALLBACK_USB_GetDescriptor
+                0x000000000000052e       0x82 obj/Descriptors.o
+                0x000000000000052e                CALLBACK_USB_GetDescriptor
  .text.Endpoint_Write_Stream_LE
-                0x00000000000004cc       0x94 obj/EndpointStream_AVR8.o
-                0x00000000000004cc                Endpoint_Write_Stream_LE
+                0x00000000000005b0       0x94 obj/EndpointStream_AVR8.o
+                0x00000000000005b0                Endpoint_Write_Stream_LE
  .text.Endpoint_Read_Stream_LE
-                0x0000000000000560       0x94 obj/EndpointStream_AVR8.o
-                0x0000000000000560                Endpoint_Read_Stream_LE
+                0x0000000000000644       0x94 obj/EndpointStream_AVR8.o
+                0x0000000000000644                Endpoint_Read_Stream_LE
  .text.Endpoint_Write_Control_Stream_LE
-                0x00000000000005f4       0xba obj/EndpointStream_AVR8.o
-                0x00000000000005f4                Endpoint_Write_Control_Stream_LE
+                0x00000000000006d8       0xba obj/EndpointStream_AVR8.o
+                0x00000000000006d8                Endpoint_Write_Control_Stream_LE
  .text.Endpoint_Write_Control_PStream_LE
-                0x00000000000006ae       0xc0 obj/EndpointStream_AVR8.o
-                0x00000000000006ae                Endpoint_Write_Control_PStream_LE
+                0x0000000000000792       0xc0 obj/EndpointStream_AVR8.o
+                0x0000000000000792                Endpoint_Write_Control_PStream_LE
  .text.Endpoint_ConfigureEndpoint_Prv
-                0x000000000000076e       0x6a obj/Endpoint_AVR8.o
-                0x000000000000076e                Endpoint_ConfigureEndpoint_Prv
+                0x0000000000000852       0x6a obj/Endpoint_AVR8.o
+                0x0000000000000852                Endpoint_ConfigureEndpoint_Prv
  .text.Endpoint_ClearStatusStage
-                0x00000000000007d8       0x3e obj/Endpoint_AVR8.o
-                0x00000000000007d8                Endpoint_ClearStatusStage
+                0x00000000000008bc       0x3e obj/Endpoint_AVR8.o
+                0x00000000000008bc                Endpoint_ClearStatusStage
  .text.Endpoint_WaitUntilReady
-                0x0000000000000816       0x66 obj/Endpoint_AVR8.o
-                0x0000000000000816                Endpoint_WaitUntilReady
+                0x00000000000008fa       0x66 obj/Endpoint_AVR8.o
+                0x00000000000008fa                Endpoint_WaitUntilReady
  .text.USB_ResetInterface
-                0x000000000000087c       0x8a obj/USBController_AVR8.o
-                0x000000000000087c                USB_ResetInterface
+                0x0000000000000960       0x8a obj/USBController_AVR8.o
+                0x0000000000000960                USB_ResetInterface
  .text.USB_Init
-                0x0000000000000906       0x1c obj/USBController_AVR8.o
-                0x0000000000000906                USB_Init
+                0x00000000000009ea       0x1c obj/USBController_AVR8.o
+                0x00000000000009ea                USB_Init
  .text.USB_INT_DisableAllInterrupts
-                0x0000000000000922       0x10 obj/USBInterrupt_AVR8.o
-                0x0000000000000922                USB_INT_DisableAllInterrupts
+                0x0000000000000a06       0x10 obj/USBInterrupt_AVR8.o
+                0x0000000000000a06                USB_INT_DisableAllInterrupts
  .text.USB_INT_ClearAllInterrupts
-                0x0000000000000932        0xa obj/USBInterrupt_AVR8.o
-                0x0000000000000932                USB_INT_ClearAllInterrupts
+                0x0000000000000a16        0xa obj/USBInterrupt_AVR8.o
+                0x0000000000000a16                USB_INT_ClearAllInterrupts
  .text.__vector_10
-                0x000000000000093c      0x194 obj/USBInterrupt_AVR8.o
-                0x000000000000093c                __vector_10
+                0x0000000000000a20      0x194 obj/USBInterrupt_AVR8.o
+                0x0000000000000a20                __vector_10
  .text.USB_Device_ProcessControlRequest
-                0x0000000000000ad0      0x2c2 obj/DeviceStandardReq.o
-                0x0000000000000ad0                USB_Device_ProcessControlRequest
+                0x0000000000000bb4      0x2c2 obj/DeviceStandardReq.o
+                0x0000000000000bb4                USB_Device_ProcessControlRequest
  .text.USB_Event_Stub
-                0x0000000000000d92        0x2 obj/Events.o
-                0x0000000000000d92                EVENT_USB_Device_WakeUp
-                0x0000000000000d92                USB_Event_Stub
-                0x0000000000000d92                EVENT_USB_Device_Suspend
-                0x0000000000000d92                EVENT_USB_Device_StartOfFrame
-                0x0000000000000d92                EVENT_USB_Device_Reset
+                0x0000000000000e76        0x2 obj/Events.o
+                0x0000000000000e76                EVENT_USB_Device_WakeUp
+                0x0000000000000e76                USB_Event_Stub
+                0x0000000000000e76                EVENT_USB_Device_Suspend
+                0x0000000000000e76                EVENT_USB_Device_StartOfFrame
+                0x0000000000000e76                EVENT_USB_Device_Reset
  .text.USB_USBTask
-                0x0000000000000d94       0x34 obj/USBTask.o
-                0x0000000000000d94                USB_USBTask
-                0x0000000000000dc8                . = ALIGN (0x2)
+                0x0000000000000e78       0x34 obj/USBTask.o
+                0x0000000000000e78                USB_USBTask
+                0x0000000000000eac                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x0000000000000dc8        0x0 /usr/lib/gcc/avr/5.4.0/avr51/libgcc.a(_exit.o)
-                0x0000000000000dc8                exit
-                0x0000000000000dc8                _exit
+ .fini9         0x0000000000000eac        0x0 /usr/lib/gcc/avr/5.4.0/avr51/libgcc.a(_exit.o)
+                0x0000000000000eac                exit
+                0x0000000000000eac                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -596,56 +596,55 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x0000000000000dc8        0x4 /usr/lib/gcc/avr/5.4.0/avr51/libgcc.a(_exit.o)
+ .fini0         0x0000000000000eac        0x4 /usr/lib/gcc/avr/5.4.0/avr51/libgcc.a(_exit.o)
  *(.fini0)
-                0x0000000000000dcc                _etext = .
+                0x0000000000000eb0                _etext = .
 
-.data           0x0000000000800100       0x22 load address 0x0000000000000dcc
+.data           0x0000000000800100       0xba load address 0x0000000000000eb0
                 0x0000000000800100                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
  *(.rodata)
- .rodata        0x0000000000800100       0x21 obj/Controller.o
+ .rodata        0x0000000000800100       0xba obj/Controller.o
  *(.rodata*)
  *(.gnu.linkonce.d*)
-                0x0000000000800122                . = ALIGN (0x2)
- *fill*         0x0000000000800121        0x1 
-                0x0000000000800122                _edata = .
-                0x0000000000800122                PROVIDE (__data_end, .)
+                0x00000000008001ba                . = ALIGN (0x2)
+                0x00000000008001ba                _edata = .
+                0x00000000008001ba                PROVIDE (__data_end, .)
 
-.bss            0x0000000000800122       0x24
-                0x0000000000800122                PROVIDE (__bss_start, .)
+.bss            0x00000000008001ba       0x24
+                0x00000000008001ba                PROVIDE (__bss_start, .)
  *(.bss)
- .bss           0x0000000000800122        0xf obj/Controller.o
-                0x0000000000800122                portsval
-                0x0000000000800124                duration_count
-                0x0000000000800126                bufindex
-                0x0000000000800128                ypos
-                0x000000000080012a                xpos
-                0x000000000080012c                report_count
-                0x000000000080012e                echoes
-                0x0000000000800130                state
+ .bss           0x00000000008001ba        0xf obj/Controller.o
+                0x00000000008001ba                portsval
+                0x00000000008001bc                duration_count
+                0x00000000008001be                bufindex
+                0x00000000008001c0                ypos
+                0x00000000008001c2                xpos
+                0x00000000008001c4                report_count
+                0x00000000008001c6                echoes
+                0x00000000008001c8                state
  *(.bss*)
  *(COMMON)
- COMMON         0x0000000000800131        0x8 obj/Controller.o
-                0x0000000000800131                last_report
- COMMON         0x0000000000800139        0x3 obj/DeviceStandardReq.o
-                0x0000000000800139                USB_Device_ConfigurationNumber
-                0x000000000080013a                USB_Device_CurrentlySelfPowered
-                0x000000000080013b                USB_Device_RemoteWakeupEnabled
- COMMON         0x000000000080013c        0xa obj/USBTask.o
-                0x000000000080013c                USB_IsInitialized
-                0x000000000080013d                USB_DeviceState
-                0x000000000080013e                USB_ControlRequest
-                0x0000000000800146                PROVIDE (__bss_end, .)
-                0x0000000000000dcc                __data_load_start = LOADADDR (.data)
-                0x0000000000000dee                __data_load_end = (__data_load_start + SIZEOF (.data))
+ COMMON         0x00000000008001c9        0x8 obj/Controller.o
+                0x00000000008001c9                last_report
+ COMMON         0x00000000008001d1        0x3 obj/DeviceStandardReq.o
+                0x00000000008001d1                USB_Device_ConfigurationNumber
+                0x00000000008001d2                USB_Device_CurrentlySelfPowered
+                0x00000000008001d3                USB_Device_RemoteWakeupEnabled
+ COMMON         0x00000000008001d4        0xa obj/USBTask.o
+                0x00000000008001d4                USB_IsInitialized
+                0x00000000008001d5                USB_DeviceState
+                0x00000000008001d6                USB_ControlRequest
+                0x00000000008001de                PROVIDE (__bss_end, .)
+                0x0000000000000eb0                __data_load_start = LOADADDR (.data)
+                0x0000000000000f6a                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x0000000000800146        0x0
+.noinit         0x00000000008001de        0x0
                 [!provide]                        PROVIDE (__noinit_start, .)
  *(.noinit*)
                 [!provide]                        PROVIDE (__noinit_end, .)
-                0x0000000000800146                _end = .
+                0x00000000008001de                _end = .
                 [!provide]                        PROVIDE (__heap_start, .)
 
 .eeprom         0x0000000000810000        0x0
@@ -742,18 +741,18 @@ END GROUP
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x0000000000000000     0x5054
+.debug_info     0x0000000000000000     0x5094
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x0000000000000000      0x995 /usr/lib/gcc/avr/5.4.0/../../../avr/lib/avr51/crtat90usb1286.o
- .debug_info    0x0000000000000995      0x8bc obj/Controller.o
- .debug_info    0x0000000000001251      0x70e obj/Descriptors.o
- .debug_info    0x000000000000195f     0x182f obj/EndpointStream_AVR8.o
- .debug_info    0x000000000000318e      0x620 obj/Endpoint_AVR8.o
- .debug_info    0x00000000000037ae      0x4e8 obj/USBController_AVR8.o
- .debug_info    0x0000000000003c96      0x688 obj/USBInterrupt_AVR8.o
- .debug_info    0x000000000000431e      0xa4c obj/DeviceStandardReq.o
- .debug_info    0x0000000000004d6a       0x78 obj/Events.o
- .debug_info    0x0000000000004de2      0x272 obj/USBTask.o
+ .debug_info    0x0000000000000995      0x8fc obj/Controller.o
+ .debug_info    0x0000000000001291      0x70e obj/Descriptors.o
+ .debug_info    0x000000000000199f     0x182f obj/EndpointStream_AVR8.o
+ .debug_info    0x00000000000031ce      0x620 obj/Endpoint_AVR8.o
+ .debug_info    0x00000000000037ee      0x4e8 obj/USBController_AVR8.o
+ .debug_info    0x0000000000003cd6      0x688 obj/USBInterrupt_AVR8.o
+ .debug_info    0x000000000000435e      0xa4c obj/DeviceStandardReq.o
+ .debug_info    0x0000000000004daa       0x78 obj/Events.o
+ .debug_info    0x0000000000004e22      0x272 obj/USBTask.o
 
 .debug_abbrev   0x0000000000000000     0x1943
  *(.debug_abbrev)
@@ -768,18 +767,18 @@ END GROUP
  .debug_abbrev  0x0000000000001794       0x44 obj/Events.o
  .debug_abbrev  0x00000000000017d8      0x16b obj/USBTask.o
 
-.debug_line     0x0000000000000000     0x2bb6
+.debug_line     0x0000000000000000     0x2c3f
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x0000000000000000       0x1a /usr/lib/gcc/avr/5.4.0/../../../avr/lib/avr51/crtat90usb1286.o
- .debug_line    0x000000000000001a      0x41f obj/Controller.o
- .debug_line    0x0000000000000439      0x1e7 obj/Descriptors.o
- .debug_line    0x0000000000000620     0x1409 obj/EndpointStream_AVR8.o
- .debug_line    0x0000000000001a29      0x469 obj/Endpoint_AVR8.o
- .debug_line    0x0000000000001e92      0x2d6 obj/USBController_AVR8.o
- .debug_line    0x0000000000002168      0x443 obj/USBInterrupt_AVR8.o
- .debug_line    0x00000000000025ab      0x461 obj/DeviceStandardReq.o
- .debug_line    0x0000000000002a0c       0x53 obj/Events.o
- .debug_line    0x0000000000002a5f      0x157 obj/USBTask.o
+ .debug_line    0x000000000000001a      0x4a8 obj/Controller.o
+ .debug_line    0x00000000000004c2      0x1e7 obj/Descriptors.o
+ .debug_line    0x00000000000006a9     0x1409 obj/EndpointStream_AVR8.o
+ .debug_line    0x0000000000001ab2      0x469 obj/Endpoint_AVR8.o
+ .debug_line    0x0000000000001f1b      0x2d6 obj/USBController_AVR8.o
+ .debug_line    0x00000000000021f1      0x443 obj/USBInterrupt_AVR8.o
+ .debug_line    0x0000000000002634      0x461 obj/DeviceStandardReq.o
+ .debug_line    0x0000000000002a95       0x53 obj/Events.o
+ .debug_line    0x0000000000002ae8      0x157 obj/USBTask.o
 
 .debug_frame    0x0000000000000000      0x66c
  *(.debug_frame)
@@ -793,26 +792,26 @@ END GROUP
  .debug_frame   0x000000000000061c       0x24 obj/Events.o
  .debug_frame   0x0000000000000640       0x2c obj/USBTask.o
 
-.debug_str      0x0000000000000000     0x21b2
+.debug_str      0x0000000000000000     0x21e0
  *(.debug_str)
  .debug_str     0x0000000000000000      0x349 /usr/lib/gcc/avr/5.4.0/../../../avr/lib/avr51/crtat90usb1286.o
- .debug_str     0x0000000000000349      0x767 obj/Controller.o
-                                        0x7c4 (size before relaxing)
- .debug_str     0x0000000000000ab0      0x75c obj/Descriptors.o
+ .debug_str     0x0000000000000349      0x795 obj/Controller.o
+                                        0x7f8 (size before relaxing)
+ .debug_str     0x0000000000000ade      0x75c obj/Descriptors.o
                                         0x95a (size before relaxing)
- .debug_str     0x000000000000120c      0x470 obj/EndpointStream_AVR8.o
+ .debug_str     0x000000000000123a      0x470 obj/EndpointStream_AVR8.o
                                         0x87f (size before relaxing)
- .debug_str     0x000000000000167c      0x26c obj/Endpoint_AVR8.o
+ .debug_str     0x00000000000016aa      0x26c obj/Endpoint_AVR8.o
                                         0x633 (size before relaxing)
- .debug_str     0x00000000000018e8      0x28e obj/USBController_AVR8.o
+ .debug_str     0x0000000000001916      0x28e obj/USBController_AVR8.o
                                         0x572 (size before relaxing)
- .debug_str     0x0000000000001b76      0x168 obj/USBInterrupt_AVR8.o
+ .debug_str     0x0000000000001ba4      0x168 obj/USBInterrupt_AVR8.o
                                         0x547 (size before relaxing)
- .debug_str     0x0000000000001cde      0x440 obj/DeviceStandardReq.o
+ .debug_str     0x0000000000001d0c      0x440 obj/DeviceStandardReq.o
                                         0x9e5 (size before relaxing)
- .debug_str     0x000000000000211e       0x35 obj/Events.o
+ .debug_str     0x000000000000214c       0x35 obj/Events.o
                                         0x1b7 (size before relaxing)
- .debug_str     0x0000000000002153       0x5f obj/USBTask.o
+ .debug_str     0x0000000000002181       0x5f obj/USBTask.o
                                         0x398 (size before relaxing)
 
 .debug_loc      0x0000000000000000     0x2d69

@@ -1,14 +1,25 @@
 #include "Controller.h"
 
 typedef enum {
-	UP,
-	DOWN,
-	LEFT,
-	RIGHT,
+	L_UP,
+	L_DOWN,
+	L_LEFT,
+	L_RIGHT,
+	R_UP,
+	R_DOWN,
+	R_LEFT,
+	R_RIGHT,
 	A,
 	B,
+	Y,
+	X,
+	L,
+	R,
+	ZL,
+	ZR,
+	MINUS,
     PLUS,
-	HOME,
+	SUSPEND,
 	SYNC,
     NOTHING
 } Buttons_t;
@@ -19,36 +30,77 @@ typedef struct {
 } command; 
 
 //Instructions for controller goes here
+//Plug in on sync screen
 static const command step[] = {
-	// Setup controller
-	{ NOTHING,  250 },
-	{ HOME,       5 },
-	{ NOTHING,   50 },
-	{ DOWN,       5 },
-	{ NOTHING,   50 },
-	{ RIGHT,      5 },
-	{ NOTHING,   50 },
-	{ RIGHT,      5 },
-	{ NOTHING,   50 },
-	{ RIGHT,      5 },
-	{ NOTHING,   50 },
-	{ A,          5 },
-	{ NOTHING,   50 },
-	{ A,          5 },
-	{ NOTHING,  150 },
-	{ SYNC,       5 },
-	{ NOTHING,  150 },
-	{ SYNC,       5 },
-	{ NOTHING,  150 },
-	{ A,          5 },
-	{ NOTHING,   50 },
-	{ HOME,       5 },
-	{ NOTHING,   50 },
-	{ A,          5 },
-	{ NOTHING,   50 },
+	
+	{SYNC,5},
+	{NOTHING,25},
+	{SYNC,5},
+	{NOTHING,25},
+	{A,5},
+	{NOTHING,100},
+	{A,5},
+	//Game Start
+	{NOTHING,115},
+	{L_RIGHT,118},
+	{A,5},		//Goomba
+	{L_RIGHT,60},
+	{A,5},		//Pipe1
+	{L_RIGHT,65},
+	{A,10},		//Pipe2
+	{L_RIGHT,40},
+	{A,30},		//Pipe3
+	{L_RIGHT,45},
+	{A,30},		//Pipe4
+	{L_RIGHT,80},
+	{A,5},		//Pit
+	{L_RIGHT,115},
+	{A,12},		//Big Pit
+	{L_RIGHT,48},
+	{A,12},		//Goombas
+	{L_RIGHT,50},
+	{A,10},		//Turtle
+	{L_RIGHT,44},
+	{A,5},		//Goombas
+	{L_RIGHT,80},
+	{A,5},		//Goombas
+	{L_RIGHT,22},
+	{A,5},		//Goombas
+	{L_RIGHT,37},
+	{A,15},		//Stairs1
+	{L_RIGHT,13},
+	{A,25},		//Stairs1.1
+	{L_RIGHT,49},
+	{A,12},		//Stairs2
+	{L_RIGHT,15},
+	{A,4},		//Stairs2.1
+	{L_RIGHT,15},
+	{A,12},		//Stairs2.2
+	{L_RIGHT,50},
+	{A,10},		//Pipe5
+	{L_RIGHT,65},
+	{A,10},		//Goombas
+	{L_RIGHT,30},
+	{A,10},		//Pipe6-Stairs3
+	{L_RIGHT,25},
+	{A,25},	//Stairs3.1
+	{L_RIGHT,6},
+	{A,20},		//Stairs3.2
+	{L_RIGHT,50},
+	{A,10},		//FlagPole
+	{L_RIGHT,30},
 
-    //Start Game
+	{NOTHING,150},
+	//Reset
+	{SUSPEND,5},
+	{NOTHING,25},
+	{L_DOWN,5},
+	{NOTHING,25},
+	{L_RIGHT,5},
+	{NOTHING,10000},
 
+
+	
 };
 
 // Main entry point.
@@ -233,22 +285,38 @@ void GetNextReport(USB_JoystickReport_Input_t* const ReportData) {
 			switch (step[bufindex].button)
 			{
 
-				case UP:
+				case L_UP:
 					ReportData->LY = STICK_MIN;				
 					break;
 
-				case LEFT:
-					ReportData->LX = STICK_MIN;				
-					break;
-
-				case DOWN:
+				case L_DOWN:
 					ReportData->LY = STICK_MAX;				
 					break;
 
-				case RIGHT:
+				case L_LEFT:
+					ReportData->LX = STICK_MIN;				
+					break;
+
+				case L_RIGHT:
 					ReportData->LX = STICK_MAX;				
 					break;
 
+				case R_UP:
+					ReportData->RY = STICK_MIN;				
+					break;
+
+				case R_DOWN:
+					ReportData->RY = STICK_MAX;				
+					break;
+
+				case R_LEFT:
+					ReportData->RX = STICK_MIN;				
+					break;
+
+				case R_RIGHT:
+					ReportData->RX = STICK_MAX;				
+					break;
+					
 				case A:
 					ReportData->Button |= SWITCH_A;
 					break;
@@ -257,8 +325,39 @@ void GetNextReport(USB_JoystickReport_Input_t* const ReportData) {
 					ReportData->Button |= SWITCH_B;
 					break;
 
+				case Y:
+					ReportData->Button |= SWITCH_Y;
+					break;
+
+				case X:
+					ReportData->Button |= SWITCH_X;
+					break;
+
+				case L:
+					ReportData->Button |= SWITCH_L;
+					break;
+
+				case R:
+					ReportData->Button |= SWITCH_R;
+					break;
+				
+				case ZL:
+					ReportData->Button |= SWITCH_ZL;
+					break;
+
+				case ZR:
+					ReportData->Button |= SWITCH_ZR;
+					break;
+
+				case MINUS:
+					ReportData->Button |= SWITCH_MINUS;
+
                 case PLUS:
                     ReportData->Button |= SWITCH_PLUS;
+
+				case SUSPEND:
+					ReportData->Button |= SWITCH_ZL | SWITCH_ZR;
+					break;
 
 				case SYNC:
 					ReportData->Button |= SWITCH_L | SWITCH_R;
