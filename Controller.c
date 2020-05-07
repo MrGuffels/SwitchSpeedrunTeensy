@@ -19,6 +19,8 @@ typedef enum {
 	ZR,
 	MINUS,
     PLUS,
+	SPRINT,
+	SPRINT_JUMP,
 	SUSPEND,
 	SYNC,
     NOTHING
@@ -39,64 +41,54 @@ static const command step[] = {
 	{NOTHING,25},
 	{A,5},
 	{NOTHING,100},
-	{A,5},
 	//Game Start
+	{A,5},
 	{NOTHING,115},
-	{L_RIGHT,118},
-	{A,5},		//Goomba
-	{L_RIGHT,60},
-	{A,5},		//Pipe1
-	{L_RIGHT,65},
-	{A,10},		//Pipe2
-	{L_RIGHT,40},
-	{A,30},		//Pipe3
-	{L_RIGHT,45},
-	{A,30},		//Pipe4
-	{L_RIGHT,80},
-	{A,5},		//Pit
-	{L_RIGHT,115},
-	{A,12},		//Big Pit
-	{L_RIGHT,48},
-	{A,12},		//Goombas
-	{L_RIGHT,50},
-	{A,10},		//Turtle
-	{L_RIGHT,44},
-	{A,5},		//Goombas
-	{L_RIGHT,80},
-	{A,5},		//Goombas
-	{L_RIGHT,22},
-	{A,5},		//Goombas
-	{L_RIGHT,37},
-	{A,15},		//Stairs1
-	{L_RIGHT,13},
-	{A,25},		//Stairs1.1
-	{L_RIGHT,49},
-	{A,12},		//Stairs2
-	{L_RIGHT,15},
-	{A,4},		//Stairs2.1
-	{L_RIGHT,15},
-	{A,12},		//Stairs2.2
-	{L_RIGHT,50},
-	{A,10},		//Pipe5
-	{L_RIGHT,65},
-	{A,10},		//Goombas
-	{L_RIGHT,30},
-	{A,10},		//Pipe6-Stairs3
-	{L_RIGHT,25},
-	{A,25},	//Stairs3.1
-	{L_RIGHT,6},
-	{A,20},		//Stairs3.2
-	{L_RIGHT,50},
-	{A,10},		//FlagPole
-	{L_RIGHT,30},
+	{SPRINT,47},
+	{SPRINT_JUMP,16},	//On Block
+	{SPRINT,8},
+	{SPRINT_JUMP,3},	//On Platform
+	{SPRINT,16},
+	{SPRINT_JUMP,3},	//Coin Block
+	{SPRINT,13},
+	{SPRINT_JUMP,3},	//Off Platform/Pipe1
+	{SPRINT,36},
+	{SPRINT_JUMP,7},	//Pipe2
+	{SPRINT,11},
+	{SPRINT_JUMP,16},	//Pipe3
+	{SPRINT,15},
+	{SPRINT_JUMP,3},	//Off Pipe3
+	{SPRINT,26},
+	{SPRINT_JUMP,10},	//On Pipe4
+	{L_DOWN,10},		//In Pipe4
+	{NOTHING,70},
+	{SPRINT,15},
+	{SPRINT_JUMP,8},	//SecretUp
+	{SPRINT,23},
+	{SPRINT_JUMP,3},	//SecretDown
+	{L_LEFT,7},
+	{NOTHING,17},
+	{SPRINT,5},
+	{NOTHING,195},
+	{SPRINT,39},
+	{SPRINT_JUMP,3},	//2nd Goomba
+	{SPRINT,23},
+	{SPRINT_JUMP,3},	//Last Pipe
+	{SPRINT,14},
+	{SPRINT_JUMP,17},
+	{SPRINT,8},
+	{SPRINT_JUMP,20},
+	{SPRINT,30},
 
-	{NOTHING,150},
+	{NOTHING,460},
+
 	//Reset
 	{SUSPEND,5},
 	{NOTHING,25},
 	{L_DOWN,5},
-	{NOTHING,25},
+	{NOTHING,15},
 	{L_RIGHT,5},
+
 	{NOTHING,10000},
 
 
@@ -129,16 +121,6 @@ void SetupHardware(void) {
 	clock_prescale_set(clock_div_1);
 	// We can then initialize our hardware and peripherals, including the USB stack.
 
-	#ifdef ALERT_WHEN_DONE
-	// Both PORTD and PORTB will be used for the optional LED flashing and buzzer.
-	#warning LED and Buzzer functionality enabled. All pins on both PORTB and \
-PORTD will toggle when printing is done.
-	DDRD  = 0xFF; //Teensy uses PORTD
-	PORTD =  0x0;
-                  //We'll just flash all pins on both ports since the UNO R3
-	DDRB  = 0xFF; //uses PORTB. Micro can use either or, but both give us 2 LEDs
-	PORTB =  0x0; //The ATmega328P on the UNO will be resetting, so unplug it?
-	#endif
 	// The USB stack should be initialized last.
 	USB_Init();
 }
@@ -354,6 +336,16 @@ void GetNextReport(USB_JoystickReport_Input_t* const ReportData) {
 
                 case PLUS:
                     ReportData->Button |= SWITCH_PLUS;
+
+				case SPRINT:
+					ReportData->Button |= SWITCH_B;
+					ReportData->LX = STICK_MAX;
+					break;
+
+				case SPRINT_JUMP:
+					ReportData->Button |= SWITCH_B | SWITCH_A;
+					ReportData->LX = STICK_MAX;
+					break;
 
 				case SUSPEND:
 					ReportData->Button |= SWITCH_ZL | SWITCH_ZR;
